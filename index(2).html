@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stouro — Your guide. Wherever you go.</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3h6YkZf1J9q3eYx2fJwVb0p5jF0bQ=" crossorigin=""/>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#f4f2ed;color:#171717;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit}.app{max-width:520px;min-height:100vh;margin:auto;background:#f4f2ed;position:relative;overflow:hidden}.screen{display:none;min-height:100vh;padding:28px 22px 30px}.screen.active{display:flex;flex-direction:column}.logo{font-weight:800;letter-spacing:.18em;font-size:14px}.eyebrow{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:.12em}h1{font-size:38px;line-height:1.02;margin:18px 0 12px;letter-spacing:-.04em}h2{font-size:27px;line-height:1.05;margin:10px 0}.sub{color:#6f6c66;line-height:1.5}.spacer{flex:1}.btn{border:0;border-radius:16px;padding:17px 18px;font-weight:700;background:#181818;color:white;width:100%;cursor:pointer}.btn.secondary{background:#e7e3db;color:#171717}.stack{display:grid;gap:11px}.choice{padding:17px;border:1px solid #d5d0c7;border-radius:16px;background:#faf9f6;text-align:left;display:flex;justify-content:space-between;align-items:center;cursor:pointer}.choice.selected{border:2px solid #181818;padding:16px;background:white}.check{width:22px;height:22px;border-radius:50%;border:1px solid #bbb}.selected .check{background:#181818;border-color:#181818;box-shadow:inset 0 0 0 5px white}.mapWrap{flex:1;min-height:430px;border-radius:25px;overflow:hidden;margin:18px 0;position:relative;background:#ddd9cf}.leafletMap{height:100%;min-height:430px;width:100%}.mapOverlay{position:absolute;z-index:900;left:12px;right:12px;top:12px;pointer-events:none}.mapPill{display:inline-block;background:rgba(255,255,255,.94);padding:8px 11px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 18px rgba(0,0,0,.1)}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:17px;box-shadow:0 8px 30px rgba(0,0,0,.08)}.small{font-size:13px;color:#777}.badge{display:inline-block;background:#e8e4dc;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.routeSummary{margin-top:-3px}.progress{height:5px;background:#dedad2;border-radius:8px;margin:12px 0}.progress>span{display:block;height:100%;width:32%;background:#181818;border-radius:8px}.text{font-size:17px;line-height:1.58;color:#37352f}.quote{font-size:15px;line-height:1.5;color:#666;border-left:3px solid #181818;padding-left:13px;margin:18px 0}.back{border:0;background:none;padding:0;color:#666;text-align:left;font-weight:600}.chat{flex:1;display:flex;flex-direction:column;gap:12px;justify-content:flex-end;padding-bottom:18px}.bubble{padding:14px 16px;border-radius:18px;max-width:88%;line-height:1.45}.user{align-self:flex-end;background:#181818;color:white;border-bottom-right-radius:5px}.ai{align-self:flex-start;background:white;border-bottom-left-radius:5px}.input{display:flex;gap:8px}.input input{flex:1;border:1px solid #d5d0c7;border-radius:15px;padding:14px;background:white}.input button{border:0;border-radius:15px;padding:0 17px;background:#181818;color:white;font-weight:700}.guide{position:absolute;left:14px;right:14px;bottom:14px}.guideTop{display:flex;justify-content:space-between;align-items:center}.live{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}.pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#111;margin-right:6px}.tourTitle{font-weight:800;font-size:19px;margin-top:8px}.nav{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:14px}.nav button{border:0;background:#eeeae2;border-radius:12px;padding:10px 13px;font-weight:700}.splash{background:#181818!important;color:#fff}.splash .eyebrow,.splash .sub{color:#c9c6bf}.splashLogo{font-size:17px;font-weight:800;letter-spacing:.22em}.splashMark{width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;margin-bottom:22px}.splashMark:after{content:"";width:16px;height:16px;border-radius:50%;background:white}.intro{background:#181818!important;color:white}.intro .eyebrow,.intro .sub{color:#c9c6bf}.introTop{display:flex;justify-content:space-between;align-items:center}.introDots{display:flex;gap:6px}.introDots span{width:6px;height:6px;border-radius:50%;background:#555}.introDots span.active{background:#fff;width:18px;border-radius:5px}.introVisual{height:280px;border-radius:28px;background:linear-gradient(145deg,#292929,#151515);margin:28px 0;position:relative;overflow:hidden}.visualLine{position:absolute;height:3px;background:#aaa;opacity:.7;transform-origin:left center;border-radius:5px}.visualDot{position:absolute;width:14px;height:14px;border-radius:50%;background:white;box-shadow:0 0 0 7px rgba(255,255,255,.12)}.wave{position:absolute;left:12%;right:12%;bottom:42px;height:70px;display:flex;align-items:center;gap:5px}.wave i{display:block;width:3px;background:white;border-radius:4px;opacity:.85}.routeArrow{position:absolute;left:50%;top:50%;font-size:38px;transform:translate(-50%,-50%);opacity:.9}.leaflet-control-attribution{font-size:9px}.leaflet-popup-content-wrapper{border-radius:12px}.leaflet-popup-content{font-weight:600}.leaflet-marker-icon{filter:none}
+</style>
+</head>
+<body>
+<div class="app">
+
+<section id="splash" class="screen splash active">
+  <div class="splashLogo">STOURO</div>
+  <div class="spacer"></div>
+  <div><div class="splashMark"></div><div class="eyebrow">Your guide. Wherever you go.</div><h1 style="margin-top:10px">Hi. I'm Stouro.</h1><p class="sub">I'm going to be your guide today.</p></div>
+  <div class="spacer"></div>
+  <button class="btn" style="background:white;color:#181818" onclick="show('intro1')">Continue</button>
+</section>
+
+<section id="intro1" class="screen intro">
+  <div class="introTop"><div class="splashLogo">STOURO</div><div class="introDots"><span class="active"></span><span></span><span></span><span></span></div></div>
+  <div class="introVisual"><div class="visualLine" style="left:12%;top:72%;width:78%;transform:rotate(-22deg)"></div><div class="visualLine" style="left:20%;top:28%;width:68%;transform:rotate(34deg)"></div><div class="visualDot" style="left:19%;top:68%"></div><div class="visualDot" style="left:69%;top:31%"></div><div class="routeArrow">→</div></div>
+  <div class="eyebrow">Meet Stouro</div><h1>Your personal guide,<br>wherever you go.</h1><p class="sub">A guide that walks with you, talks with you and adapts to the way you explore.</p>
+  <div class="spacer"></div><button class="btn" style="background:white;color:#181818" onclick="show('intro2')">Next</button>
+</section>
+
+<section id="intro2" class="screen intro">
+  <div class="introTop"><div class="splashLogo">STOURO</div><div class="introDots"><span></span><span class="active"></span><span></span><span></span></div></div>
+  <div class="introVisual"><div class="visualLine" style="left:8%;top:67%;width:84%;transform:rotate(-15deg)"></div><div class="visualLine" style="left:32%;top:15%;width:70%;transform:rotate(55deg)"></div><div class="visualDot" style="left:15%;top:64%"></div><div class="visualDot" style="left:77%;top:42%"></div><div class="routeArrow">⌁</div></div>
+  <div class="eyebrow">Just keep walking</div><h1>Look around.<br>I'll handle the route.</h1><p class="sub">You don't need to keep checking your phone. Stouro guides you as you walk and adapts when you wander.</p>
+  <div class="spacer"></div><button class="btn" style="background:white;color:#181818" onclick="show('intro3')">Next</button>
+</section>
+
+<section id="intro3" class="screen intro">
+  <div class="introTop"><div class="splashLogo">STOURO</div><div class="introDots"><span></span><span></span><span class="active"></span><span></span></div></div>
+  <div class="introVisual"><div class="wave"><i style="height:18px"></i><i style="height:32px"></i><i style="height:54px"></i><i style="height:27px"></i><i style="height:42px"></i><i style="height:65px"></i><i style="height:35px"></i><i style="height:52px"></i><i style="height:24px"></i><i style="height:45px"></i><i style="height:18px"></i></div><div class="card" style="position:absolute;left:16px;right:16px;top:18px;padding:13px;background:rgba(255,255,255,.1);color:#fff;box-shadow:none">“What’s that building?”</div></div>
+  <div class="eyebrow">Talk to your guide</div><h1>Ask questions.<br>Get answers.</h1><p class="sub">Interrupt me whenever you want. Stouro can explain what you're seeing and carry on with the walk afterwards.</p>
+  <div class="spacer"></div><button class="btn" style="background:white;color:#181818" onclick="show('intro4')">Next</button>
+</section>
+
+<section id="intro4" class="screen intro">
+  <div class="introTop"><div class="splashLogo">STOURO</div><div class="introDots"><span></span><span></span><span></span><span class="active"></span></div></div>
+  <div class="introVisual"><div class="visualLine" style="left:7%;top:71%;width:80%;transform:rotate(-28deg)"></div><div class="visualLine" style="left:22%;top:26%;width:70%;transform:rotate(40deg)"></div><div class="visualDot" style="left:15%;top:67%"></div><div class="visualDot" style="left:43%;top:51%"></div><div class="visualDot" style="left:75%;top:27%"></div><div class="routeArrow">↗</div></div>
+  <div class="eyebrow">Your day. Your way.</div><h1>The route changes<br>with you.</h1><p class="sub">Stouro considers where you are, what you've seen, where you're going and how much time you have — then adapts the tour.</p>
+  <div class="spacer"></div><button class="btn" style="background:white;color:#181818" onclick="show('home')">Start exploring →</button>
+</section>
+
+<section id="home" class="screen">
+  <div class="logo">STOURO</div>
+  <div style="margin-top:28vh"><div class="eyebrow">Personal walking tours</div><h1>Your guide.<br>Wherever you go.</h1><p class="sub">Explore a city with a guide that walks with you, talks with you and adapts to the way you explore.</p></div>
+  <div class="spacer"></div><button class="btn" onclick="show('city')">Choose a location</button>
+</section>
+
+<section id="city" class="screen">
+  <button class="back" onclick="show('home')">← Back</button>
+  <div style="margin-top:35px"><div class="eyebrow">Choose a location</div><h2>Where are you exploring?</h2><p class="sub">Choose somewhere and Stouro will show you the area before you start.</p></div>
+  <div class="spacer"></div><div class="stack">
+    <button id="herneChoice" class="choice selected" onclick="selectLocation('Herne Bay')"><span><b>Herne Bay</b><br><span class="small">A simple local proof-of-concept tour</span></span><span class="check"></span></button>
+    <button id="romeChoice" class="choice" onclick="selectLocation('Rome')"><span><b>Rome</b><br><span class="small">Ancient Rome · Colosseum, Forum &amp; Palatine</span></span><span class="check"></span></button>
+  </div>
+</section>
+
+<section id="mapOverview" class="screen">
+  <button class="back" onclick="show('city')">← Back</button>
+  <div style="margin-top:18px"><div class="eyebrow">Location overview</div><h2 id="mapTitle">Herne Bay</h2><p class="sub" id="mapSub">Here are a few places Stouro can build into your walk.</p></div>
+  <div class="mapWrap"><div id="locationMap" class="leafletMap"></div><div class="mapOverlay"><span class="mapPill">Interactive map</span></div></div>
+  <div class="card routeSummary"><b id="mapStops">3 landmarks</b> · <span id="mapDistance">about 1.8 km</span><br><span class="small" id="mapLandmarks">Herne Bay Pier · Clock Tower · Bandstand</span></div>
+  <div style="height:12px"></div><button class="btn" onclick="show('time')">Plan this tour</button>
+</section>
+
+<section id="time" class="screen">
+  <button class="back" onclick="show('mapOverview')">← Map</button>
+  <div style="margin-top:35px"><div class="eyebrow">How long?</div><h2 id="timeHeading">Herne Bay tour</h2><p class="sub">Stouro will build the best route for the time you have.</p></div>
+  <div class="spacer"></div><div class="stack">
+    <button class="choice" onclick="setDuration('30 minutes')"><span><b>30 minutes</b></span><span>→</span></button>
+    <button class="choice" onclick="setDuration('1 hour')"><span><b>1 hour</b></span><span>→</span></button>
+    <button class="choice selected" onclick="setDuration('2 hours')"><span><b>2 hours</b></span><span>→</span></button>
+    <button class="choice" onclick="setDuration('3 hours')"><span><b>3 hours</b></span><span>→</span></button>
+  </div>
+</section>
+
+<section id="preview" class="screen">
+  <button class="back" onclick="show('time')">← Back</button>
+  <div style="margin-top:25px"><span class="badge" id="previewBadge">2 hour tour</span><h2 id="previewTitle">Herne Bay</h2><p class="sub" id="previewSub">A simple local tour to prove the Stouro experience in the real world.</p></div>
+  <div class="mapWrap" style="min-height:300px"><div id="previewMap" class="leafletMap" style="min-height:300px"></div></div>
+  <div class="card"><b id="previewStops">3 stops</b> · about <b id="previewDistance">1.8 km</b> walking<br><span class="small" id="previewRoute">Herne Bay Pier → Seafront → Clock Tower</span></div>
+  <div style="height:12px"></div><button class="btn" onclick="show('tour')">Start tour</button>
+</section>
+
+<section id="tour" class="screen" style="padding:18px">
+  <div class="mapWrap" style="min-height:100%;margin:0"><div id="tourMap" class="leafletMap" style="min-height:100vh"></div>
+    <div class="guide card"><div class="guideTop"><span class="live"><span class="pulse"></span>STOURO</span><span class="small">Guide &amp; Navigation</span></div><div class="tourTitle" id="tourMessage">You're approaching Herne Bay Pier.</div><div class="small" id="tourSub" style="margin-top:5px">This is our first real-world Stouro test area.</div><div class="progress"><span></span></div><div class="nav"><span class="small" id="nextStop">Next · Herne Bay Pier</span><button onclick="show('stop')">Open stop</button></div><div style="margin-top:8px"><button class="btn secondary" onclick="show('chat')">Talk to Stouro</button></div></div>
+  </div>
+</section>
+
+<section id="stop" class="screen"><button class="back" onclick="show('tour')">← Map</button><div style="margin-top:22px"><span class="badge" id="stopBadge">Herne Bay Pier</span><h2 id="stopTitle">Herne Bay Pier</h2><p class="text" id="stopText">This is our first Stouro proof-of-concept stop. The goal here is to test the experience of being guided around a real place, with Stouro knowing where you are and speaking at the right moment.</p><p class="quote" id="stopQuote">Next step: replace this simple local content with a proper trusted-source knowledge record for each Herne Bay stop.</p><p class="text" id="stopEnding">And that's the story of Herne Bay Pier. If there's anything you're curious about, ask me. Otherwise, we'll head towards the Clock Tower.</p></div><div class="spacer"></div><button class="btn" onclick="show('chat')">Ask Stouro something</button><div style="height:10px"></div><button class="btn secondary" onclick="show('tour')">Continue walking</button></section>
+
+<section id="chat" class="screen"><button class="back" onclick="show('tour')">← Back to tour</button><div style="margin-top:18px"><div class="eyebrow">Talking to your guide</div><h2>Ask anything.</h2></div><div class="chat"><div class="bubble user">What am I looking at?</div><div class="bubble ai">This is a Stouro prototype conversation. The next build will connect this to the AI guide and the live location context.</div></div><div class="input"><input id="q" placeholder="Ask Stouro…"><button onclick="ask()">Send</button></div></section>
+
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+let selectedLocation='Herne Bay';
+let selectedDuration='2 hours';
+let maps={};
+const places={
+  'Herne Bay':{center:[51.3716,1.1284],zoom:15,sub:'A few local landmarks Stouro can use for the first real-world test.',distance:'about 1.8 km',landmarks:'Herne Bay Pier · Clock Tower · Bandstand',stops:'3 landmarks',route:'Herne Bay Pier → Seafront → Clock Tower',pins:[['Herne Bay Pier',51.3710,1.1272],['Clock Tower',51.3726,1.1263],['Bandstand',51.3697,1.1318]]},
+  'Rome':{center:[41.8902,12.4922],zoom:15,sub:'Ancient Rome landmarks that can form the first full Stouro tour.',distance:'about 3.2 km',landmarks:'Colosseum · Roman Forum · Palatine Hill · Capitoline',stops:'4 landmarks',route:'Colosseum → Roman Forum → Palatine Hill → Capitoline',pins:[['Colosseum',41.8902,12.4922],['Roman Forum',41.8925,12.4853],['Palatine Hill',41.8892,12.4871],['Capitoline Hill',41.8931,12.4828]]}
+};
+function makeMap(id,location){const p=places[location];if(maps[id]){maps[id].setView(p.center,p.zoom);setTimeout(()=>maps[id].invalidateSize(),50);return maps[id]};const map=L.map(id,{zoomControl:true,scrollWheelZoom:true}).setView(p.center,p.zoom);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);p.pins.forEach(pin=>L.marker([pin[1],pin[2]]).addTo(map).bindPopup(pin[0]));const route=L.polyline(p.pins.map(x=>[x[1],x[2]]),{weight:4,opacity:.75}).addTo(map);map.fitBounds(route.getBounds().pad(.25));maps[id]=map;setTimeout(()=>map.invalidateSize(),100);return map}
+function selectLocation(location){selectedLocation=location;document.getElementById('herneChoice').classList.toggle('selected',location==='Herne Bay');document.getElementById('romeChoice').classList.toggle('selected',location==='Rome');updateLocationContent();show('mapOverview')}
+function setDuration(duration){selectedDuration=duration;document.getElementById('previewBadge').textContent=duration+' tour';show('preview')}
+function updateLocationContent(){const p=places[selectedLocation],herne=selectedLocation==='Herne Bay';document.getElementById('timeHeading').textContent=selectedLocation+' tour';document.getElementById('mapTitle').textContent=selectedLocation;document.getElementById('mapSub').textContent=p.sub;document.getElementById('mapStops').textContent=p.stops;document.getElementById('mapDistance').textContent=p.distance;document.getElementById('mapLandmarks').textContent=p.landmarks;document.getElementById('previewTitle').textContent=herne?'Herne Bay':'Ancient Rome';document.getElementById('previewSub').textContent=p.sub;document.getElementById('previewStops').textContent=herne?'3 stops':'4 stops';document.getElementById('previewDistance').textContent=herne?'1.8 km':'3.2 km';document.getElementById('previewRoute').textContent=p.route;document.getElementById('stopBadge').textContent=herne?'Herne Bay Pier':'Colosseum';document.getElementById('stopTitle').textContent=herne?'Herne Bay Pier':'The Colosseum';document.getElementById('stopText').textContent=herne?'This is our first Stouro proof-of-concept stop. The goal here is to test the experience of being guided around a real place, with Stouro knowing where you are and speaking at the right moment.':'You are standing beside one of the most extraordinary buildings of the ancient world. Construction began under Emperor Vespasian around AD 70–72 and the amphitheatre was inaugurated under his son Titus in AD 80.';document.getElementById('stopQuote').textContent=herne?'Next step: replace this simple local content with a proper trusted-source knowledge record for each Herne Bay stop.':'Stouro uses trusted historical sources and makes uncertainty clear when the evidence is incomplete.';document.getElementById('stopEnding').textContent=herne?"And that's the story of Herne Bay Pier. If there's anything you're curious about, ask me. Otherwise, we'll head towards the Clock Tower.":"And that's the story of the Colosseum. If there's anything you're curious about, ask me. Otherwise, we'll head towards the Roman Forum.";document.getElementById('tourMessage').textContent=herne?"You're approaching Herne Bay Pier.":"You're approaching the Colosseum.";document.getElementById('nextStop').textContent=herne?'Next · Herne Bay Pier':'Next · Colosseum';document.getElementById('tourSub').textContent=herne?'This is our first real-world Stouro test area.':"I'll tell you the story when we're in the right place."}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);if(id==='mapOverview')makeMap('locationMap',selectedLocation);if(id==='preview')makeMap('previewMap',selectedLocation);if(id==='tour')makeMap('tourMap',selectedLocation)}
+function ask(){const i=document.getElementById('q');if(!i.value.trim())return;const text=i.value.trim();i.value='';alert('AI conversation will connect in the next build. Your question was: '+text)}
+</script>
+</body>
+</html>
