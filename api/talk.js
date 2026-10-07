@@ -8,12 +8,37 @@ Use the supplied tour context. Do not repeatedly restart the main story when the
 Never invent historical facts. If information is uncertain, say so.
 Do not overwhelm someone who is currently walking. Prefer concise spoken-style answers, usually two or three short sentences. Do not claim live knowledge of the user's exact surroundings beyond the supplied context.`;
 const MAX_MESSAGE_LENGTH = 1200;
+const MAX_BODY_BYTES = 64 * 1024;
+const UPSTREAM_TIMEOUT_MS = 15000;
+// Best-effort per-IP limit. Serverless instances do not share memory, so this only blunts bursts against a warm instance.
+const RATE_LIMIT_WINDOW_MS = 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 20;
+const recentRequests = new Map();
 function send(res, status, payload) { return res.status(status).json(payload); }
 function asText(value, limit) { return typeof value === 'string' ? value.trim().slice(0, limit) : ''; }
+function clientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  return (typeof forwarded === 'string' && forwarded.split(',')[0].trim()) || req.headers['x-real-ip'] || req.socket?.remoteAddress || 'unknown';
+}
+function isRateLimited(ip, now) {
+  if (recentRequests.size > 5000) {
+    for (const [key, times] of recentRequests) if (!times.some(time => now - time < RATE_LIMIT_WINDOW_MS)) recentRequests.delete(key);
+  }
+  const times = (recentRequests.get(ip) || []).filter(time => now - time < RATE_LIMIT_WINDOW_MS);
+  const limited = times.length >= RATE_LIMIT_MAX_REQUESTS;
+  if (!limited) times.push(now);
+  recentRequests.set(ip, times);
+  return limited;
+}
 module.exports = async function talk(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return send(res, 405, { code: 'method_not_allowed', error: 'Use POST to talk to Stouro.' });
+  }
+  if (Number(req.headers['content-length']) > MAX_BODY_BYTES) return send(res, 413, { code: 'request_too_large', error: 'That message is too long for Stouro. Please try a shorter question.' });
+  if (isRateLimited(clientIp(req), Date.now())) {
+    res.setHeader('Retry-After', String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)));
+    return send(res, 429, { code: 'rate_limited', error: 'Stouro is getting a lot of questions from you right now. Please wait a moment and try again.' });
   }
   const body = typeof req.body === 'string' ? (() => { try { return JSON.parse(req.body); } catch { return null; } })() : req.body;
   if (!body || typeof body !== 'object' || Array.isArray(body)) return send(res, 400, { code: 'invalid_request', error: 'Please send a question to Stouro.' });
@@ -38,9 +63,12 @@ module.exports = async function talk(req, res) {
     tourTheme: asText(body.tourTheme, 140),
     route: Array.isArray(body.route) ? body.route.slice(0, 12).map(stop => asText(stop, 120)).filter(Boolean) : []
   };
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
   try {
     const upstream = await fetch('https://api.openai.com/v1/responses', {
       method: 'POST',
+      signal: controller.signal,
       headers: { 'Authorization': 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'gpt-4.1-mini',
@@ -62,7 +90,13 @@ module.exports = async function talk(req, res) {
     if (!String(reply).trim()) return send(res, 502, { code: 'empty_response', error: 'Stouro did not get a complete answer. Please try again.' });
     return send(res, 200, { reply: String(reply).trim() });
   } catch (error) {
+    if (error?.name === 'AbortError') {
+      console.error('Stouro Talk provider request timed out after', UPSTREAM_TIMEOUT_MS, 'ms');
+      return send(res, 504, { code: 'provider_timeout', error: 'Stouro Talk took too long to answer. Please try again.' });
+    }
     console.error('Stouro Talk request failed:', error?.message || 'network error');
     return send(res, 502, { code: 'provider_unavailable', error: 'Stouro Talk is temporarily unavailable. Your walking tour is still ready.' });
+  } finally {
+    clearTimeout(timeout);
   }
 };
