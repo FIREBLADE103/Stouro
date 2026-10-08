@@ -7,6 +7,7 @@
 <title>Stouro</title>
 <meta name="apple-mobile-web-app-title" content="Stouro">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
@@ -84,8 +85,9 @@ h1,h2,.cityTileMeta b,.sheetTitleRow h2{font-family:Georgia,"Times New Roman",se
 @media(prefers-reduced-motion:reduce){.cityTile,.cityList{scroll-behavior:auto}}
 /* Photo-led Explore composition: edge-to-edge Rome hero with an editorial destination rail. */
 .cityScreen{padding:0 0 calc(70px + env(safe-area-inset-bottom))!important;gap:0!important;overflow:hidden}
-.exploreHero{position:relative;isolation:isolate;display:flex;flex:0 0 54dvh;min-height:360px;max-height:520px;flex-direction:column;justify-content:flex-start;gap:0;overflow:hidden;margin:0 0 16px;padding:calc(14px + env(safe-area-inset-top)) 22px 17px;background:#574536}
-.exploreHeroImage,.exploreHeroShade{position:absolute;inset:0;width:100%;height:100%}
+.exploreHero{position:relative;isolation:isolate;display:flex;flex:0 0 54dvh;min-height:360px;max-height:520px;flex-direction:column;justify-content:flex-start;gap:0;overflow:visible;clip-path:inset(-40px 0 0);margin:0 0 16px;padding:calc(14px + env(safe-area-inset-top)) 22px 17px;background:#574536}
+/* 40px top bleed (unclipped by the inset above) so iOS rubber-band never reveals a gap above the hero photo. */
+.exploreHeroImage,.exploreHeroShade{position:absolute;inset:-40px 0 0;width:100%;height:calc(100% + 40px)}
 .exploreHeroImage{z-index:0;object-fit:cover;object-position:center 43%;background:linear-gradient(145deg,#87745f,#514231 55%,#2f2a24)}
 .exploreHeroShade{z-index:1;background:linear-gradient(180deg,#201b17a8 0%,#30251b30 34%,#21191312 53%,#241b14b8 100%);pointer-events:none}
 .exploreBrand,.exploreLead,.locationSearch{position:relative;z-index:2}
