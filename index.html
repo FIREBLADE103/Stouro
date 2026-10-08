@@ -187,6 +187,17 @@ html[data-theme="dark"] .settingsSegment button.selected{background:var(--accent
 .btn:focus-visible,.walkButton:focus-visible,.planButton:focus-visible,.beginTourButton:focus-visible,.tourActions button:focus-visible,.locateButton:focus-visible,.choice:focus-visible,.talkSend:focus-visible,.talkIconButton:focus-visible{outline:3px solid #b85c3d59;outline-offset:2px}
 .appNav button:focus-visible{outline:2px solid var(--accent-hi);outline-offset:1px}
 @media(prefers-reduced-motion:reduce){.btn:active,.cityContinue:active,.beginTourButton:active,.walkButton:active,.planButton:active,.tourActions button:active,.sheetExpand:active,.locateButton:active,.durationChip:active,.choice:active,.settingsSegment button:active,.exploreRailHeading button:active,.browseBar button:active,.talkSend:active,.talkIconButton:active,.endTourCard button:active,.resumeFollowButton:active{transform:none}}
+/* Taskbar polish: larger icons and labels fill the existing bar height; heights and positions are unchanged. */
+.appNav,.appNav.activeTour{padding:4px;gap:2px}
+.appNav button,.appNav.activeTour button{gap:3px;border-radius:17px;font-size:10.5px;font-weight:600;letter-spacing:.01em;line-height:1;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;transition:transform .2s cubic-bezier(.2,.8,.3,1),background-color .18s ease,color .18s ease}
+.appNav button>span:not(.navIcon){white-space:nowrap}
+.appNav.activeTour button{font-size:10px}
+.navIcon{width:24px;height:24px;flex:0 0 auto}
+.navIcon svg{stroke-width:1.7;transition:stroke-width .18s ease}
+.appNav button.active .navIcon svg{stroke-width:2}
+.appNav button:active:not(:disabled){transform:scale(.93);background-color:#f7efe30f;transition-duration:.08s}
+.appNav button.active:active:not(:disabled){background-color:#f7efe31f}
+@media(prefers-reduced-motion:reduce){.appNav button,.navIcon svg{transition:none}.appNav button:active:not(:disabled){transform:none}}
 </style>
 </head>
 <body>
@@ -259,9 +270,9 @@ html[data-theme="dark"] .settingsSegment button.selected{background:var(--accent
   <section class="settingsSection" aria-labelledby="settingsAboutTitle"><h3 class="settingsSectionTitle" id="settingsAboutTitle">About</h3><div class="settingsCard"><div class="settingsItem"><span class="settingsIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 11v5m0-8v.01"/></svg></span><span class="settingsItemText"><b>Version</b></span><span class="settingsValue" id="settingsVersion"></span></div><div class="settingsItem"><span class="settingsIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m14.5 6.5 3 3M5 19l3.5-.8L19 7.7a2.1 2.1 0 0 0-3-3L5.8 15.5z"/></svg></span><span class="settingsItemText"><b>Build</b></span><span class="settingsValue">Development</span></div></div></section>
   <p class="settingsFooter"><b>STOURO</b>Your guide. Wherever you go.</p><div class="spacer"></div></section>
 <nav id="appNav" class="appNav" aria-label="App navigation" hidden>
-  <button type="button" data-tab="home" onclick="handleHomeNav()"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span><span id="homeNavLabel">Home</span></button>
-  <button type="button" data-tab="map" onclick="show(tourStarted?'tour':'mapOverview')"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15m6-12v15"/></svg></span><span>Map</span></button>
-  <button type="button" data-tab="talk" onclick="tourStarted?show('chat'):show('settings')"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4zM8 9h8m-8 4h5"/></svg></span><span>Talk</span></button>  <button type="button" data-tab="settings" onclick="show('settings')"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><path d="M19 13.5a1.8 1.8 0 0 0 .4 2l.1.1-1.7 2.9-.2-.1a1.8 1.8 0 0 0-2.1.5l-.1.2h-3.4l-.1-.2a1.8 1.8 0 0 0-2.1-.5l-.2.1-1.7-2.9.1-.1a1.8 1.8 0 0 0 .4-2L8.2 12l.2-1.5a1.8 1.8 0 0 0-.4-2l-.1-.1 1.7-2.9.2.1a1.8 1.8 0 0 0 2.1-.5l.1-.2h3.4l.1.2a1.8 1.8 0 0 0 2.1.5l.2-.1 1.7 2.9-.1.1a1.8 1.8 0 0 0-.4 2L19 12z"/></svg></span><span id="settingsNavLabel">Settings</span></button>
+  <button type="button" data-tab="home" onclick="handleHomeNav()"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.6l8.5 6.9"/><path d="M5.6 8.9v10.4c0 .7.5 1.2 1.2 1.2H10v-5.2c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v5.2h3.2c.7 0 1.2-.5 1.2-1.2V8.9"/></svg></span><span id="homeNavLabel">Home</span></button>
+  <button type="button" data-tab="map" onclick="show(tourStarted?'tour':'mapOverview')"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4.4 4 6.5c-.3.1-.5.4-.5.7v11.6c0 .4.4.7.8.5L9 17.4l6 2.6 5-2.1c.3-.1.5-.4.5-.7V5.6c0-.4-.4-.7-.8-.5L15 7zM9 4.4v13m6-10.4v13"/></svg></span><span>Map</span></button>
+  <button type="button" data-tab="talk" onclick="tourStarted?show('chat'):show('settings')"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.2c-4.7 0-8.5 3-8.5 6.8 0 2.2 1.2 4.1 3.1 5.3l-.5 3.5 3.8-2.2c.7.1 1.4.2 2.1.2 4.7 0 8.5-3 8.5-6.8S16.7 4.2 12 4.2z"/></svg></span><span>Talk</span></button>  <button type="button" data-tab="settings" onclick="show('settings')"><span class="navIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.3" stroke-width="2.4" stroke-linecap="butt" stroke-dasharray="3 3.52" stroke-dashoffset="1.5"/><circle cx="12" cy="12" r="6.6"/><circle cx="12" cy="12" r="2.5"/></svg></span><span id="settingsNavLabel">Settings</span></button>
 </nav>
 <div id="endTourDialog" class="endTourDialog" hidden><div class="endTourCard" role="dialog" aria-modal="true" aria-labelledby="endTourTitle"><h2 id="endTourTitle">End this tour?</h2><p>Your progress will be cleared if you leave now.</p><div><button type="button" class="planButton" onclick="closeEndTourDialog()">Continue tour</button><button type="button" class="beginTourButton" onclick="endTourNow()">End tour</button></div></div></div>
 </div>
