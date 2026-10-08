@@ -156,21 +156,24 @@ html,body,.app{background:var(--paper)!important}
 .settingsHeader{margin:22px 4px 4px}.settingsHeader h2{font-size:32px;letter-spacing:-.01em;margin:6px 0}.settingsHeader .sub{margin:0;color:var(--muted)}
 .settingsSection{margin-top:22px}
 .settingsSectionTitle{margin:0 0 8px 16px;font-size:12px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.settingsCard{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 22px #51402c12;overflow:hidden}
+.settingsCard{background:linear-gradient(180deg,#fcf7ef,#f8f0e4);border:1px solid #cdb89e;border-radius:18px;box-shadow:inset 0 1px 0 #fffdf8,0 1px 2px #51402c14,0 8px 24px #51402c17;overflow:hidden}
 .settingsItem{position:relative;display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 14px}
 .settingsItem+.settingsItem::before{content:"";position:absolute;top:0;left:58px;right:0;border-top:1px solid var(--line)}
 .settingsItemStacked{flex-direction:column;align-items:stretch;padding-bottom:14px}
 .settingsItemHead{display:flex;align-items:center;gap:12px}
-.settingsIcon{flex:0 0 32px;width:32px;height:32px;display:grid;place-items:center;border-radius:9px;background:var(--accent-soft);color:var(--accent)}
+.settingsIcon{flex:0 0 32px;width:32px;height:32px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(180deg,#f2e2d3,#ead5c3);color:var(--accent);box-shadow:inset 0 0 0 1px #a956381f}
 .settingsIcon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .settingsItemText{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.settingsItemText b{font-size:15px;color:var(--ink)}.settingsItemText .small{font-size:12.5px;line-height:1.3;color:var(--muted)}
 .settingsValue{font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums}
-.settingsSegment{display:flex;gap:3px;padding:3px;border-radius:12px;background:var(--sand)}
-.settingsSegment button{flex:1;min-height:36px;border:0;border-radius:9px;background:transparent;color:var(--ink);font:inherit;font-size:13px;font-weight:650;transition:background .18s ease,color .18s ease,box-shadow .18s ease}
-.settingsSegment button.selected{background:var(--surface);color:var(--accent);box-shadow:0 1px 4px #3d302633,0 0 0 .5px #3d30261a}
+.settingsSegment{display:flex;gap:3px;padding:3px;border-radius:12px;background:#ece0cf;border:1px solid #d6c4ad;box-shadow:inset 0 1px 2px #51402c14}
+.settingsSegment button{flex:1;min-height:38px;border:0;border-radius:9px;background:transparent;color:#5a4a3c;font:inherit;font-size:13.5px;font-weight:650;transition:background .18s ease,color .18s ease,box-shadow .18s ease}
+.settingsSegment button.selected{background:linear-gradient(180deg,#fffaf3,#fbf1e6);color:var(--accent);font-weight:720;box-shadow:inset 0 0 0 1px #a9563852,0 1px 3px #3d302629,0 2px 8px #a956381a}
 .settingsSegment button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-html[data-theme="dark"] .settingsCard{box-shadow:none}
-html[data-theme="dark"] .settingsSegment button.selected{background:var(--accent-soft);color:#f0c3a5;box-shadow:0 1px 4px #0006}
+html[data-theme="dark"] .settingsCard{background:linear-gradient(180deg,#3c3229,#362d25);border-color:#64503f;box-shadow:inset 0 1px 0 #ffffff0d,0 6px 20px #0000003d}
+html[data-theme="dark"] .settingsIcon{background:linear-gradient(180deg,#5a3d2f,#4e3429);color:#e09a74;box-shadow:inset 0 0 0 1px #cc795533}
+html[data-theme="dark"] .settingsSegment{background:#2b241e;border-color:#54443a;box-shadow:inset 0 1px 3px #0000004d}
+html[data-theme="dark"] .settingsSegment button{color:#dccbb6}
+html[data-theme="dark"] .settingsSegment button.selected{background:linear-gradient(180deg,#5c3e30,#52372b);color:#f5cfb4;box-shadow:inset 0 0 0 1px #cc795566,0 1px 4px #00000066}
 .settingsFooter{margin:26px 0 8px;text-align:center;font-size:12px;color:var(--muted)}.settingsFooter b{display:block;margin-bottom:4px;font-size:13px;letter-spacing:.24em;color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.settingsSegment button{transition:none}}
 </style>
