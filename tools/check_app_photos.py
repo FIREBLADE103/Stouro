@@ -15,6 +15,7 @@ FAIL (exit code 1):
   - a WebP image larger than 1 MiB
 WARN (exit code 0):
   - a WebP image larger than 500 KiB (review for further optimisation)
+  - a WebP image in a web/ folder that index.html does not reference
   - a legacy non-WebP file in a web/ folder that index.html does not reference
     (.gitkeep is ignored)
   - index.html references an app image outside a web/ folder
@@ -76,21 +77,26 @@ def path_key(path: Path) -> str:
     return os.path.normcase(str(path.resolve()))
 
 
-def check_web_folder(web_dir: Path, referenced: set[str], report: Report) -> int:
-    """Check every file in one web/ folder. Returns the number of WebP images checked."""
+def check_web_folder(web_dir: Path, referenced: set[str] | None, report: Report) -> int:
+    """Check every file in one web/ folder. Returns the number of WebP images checked.
+
+    `referenced` is None when index.html is missing; unused-WebP warnings are then skipped.
+    """
     checked = 0
     for path in sorted(p for p in web_dir.iterdir() if p.is_file()):
         name = rel(path)
         if path.name in IGNORED_FILES:
             continue
         if path.suffix.lower() != ".webp":
-            if path_key(path) in referenced:
+            if referenced is not None and path_key(path) in referenced:
                 # The index.html reference check reports this as a failure.
                 continue
             report.warn(f"{name}: legacy non-WebP file, not referenced by index.html")
             continue
 
         checked += 1
+        if referenced is not None and path_key(path) not in referenced:
+            report.warn(f"{name}: unused WebP, not referenced by index.html")
         size = path.stat().st_size
         try:
             with Image.open(path) as img:
@@ -193,7 +199,8 @@ def main() -> int:
 
     report = Report()
     references = collect_references()
-    referenced = {path_key(path) for _, _, path in references or []}
+    referenced = (None if references is None
+                  else {path_key(path) for _, _, path in references})
 
     images_checked = 0
     for city in cities:
