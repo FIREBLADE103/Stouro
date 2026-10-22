@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- GUIDO app icon (any purpose and apple-touch-icon): the pin emblem on a cream tile. Source for icon-192.png, icon-512.png and apple-touch-icon.png. Keep the emblem geometry in sync with guido-emblem.svg. -->
+  <defs>
+    <clipPath id="guidoInner"><path d="M50 105C40 88 33 70 25.35 57.3A29 29 0 1 1 74.65 57.3C67 70 60 88 50 105Z"/></clipPath>
+    <clipPath id="guidoWindow"><circle cx="50" cy="42" r="29"/></clipPath>
+  </defs>
+  <rect width="512" height="512" fill="#F6EEE3"/>
+  <g transform="translate(96 64) scale(3.2)">
+    <path fill="#C7643B" d="M50 118Q30 92 16 63.1A40 40 0 1 1 84 63.1Q70 92 50 118Z"/>
+    <circle cx="50" cy="42" r="29" fill="#F6EEE3"/>
+    <g clip-path="url(#guidoWindow)" fill="#292722">
+      <path d="M46.8 16.2 50 13.6l3.2 2.6z"/>
+      <rect x="47.6" y="15.8" width="4.8" height="6.2" rx=".6"/>
+      <path d="M37 37C37 26.5 43 21 50 21s13 5.5 13 16z"/>
+      <rect x="39" y="35.5" width="22" height="11.5"/>
+      <path d="M23.5 40.5c0-4.5 2-6.5 4-7.5 2 1 4 3 4 7.5zM68.5 40.5c0-4.5 2-6.5 4-7.5 2 1 4 3 4 7.5z"/>
+      <rect x="24" y="40" width="7" height="17"/>
+      <rect x="69" y="40" width="7" height="17"/>
+      <rect x="30" y="46" width="40" height="11"/>
+      <rect x="16" y="50" width="68" height="8"/>
+    </g>
+    <g fill="#F6EEE3">
+      <rect x="42.6" y="38.5" width="2.2" height="5.5" rx="1.1"/>
+      <rect x="48.9" y="38.5" width="2.2" height="5.5" rx="1.1"/>
+      <rect x="55.2" y="38.5" width="2.2" height="5.5" rx="1.1"/>
+    </g>
+    <g clip-path="url(#guidoInner)">
+      <path fill="#292722" d="M0 57C20 52 34 55.5 50 55.5S80 52 100 56V120H0z"/>
+      <path fill="#EADCC4" d="M52.5 57C40 61 31 68 39 77c7 8 17 15 4 33H58C62 94 54 83 46 77c-6.5-5-1-13.5 11-19.5z"/>
+    </g>
+  </g>
+</svg>
