@@ -252,6 +252,8 @@ html{--tour-map-bg:#efefec;--tour-location:#1a73e8}html[data-theme="dark"]{--tou
 .mapExpandButton{position:absolute;z-index:900;right:10px;bottom:26px}
 .mapCollapseIcon,.mapOverview.expanded .mapExpandIcon{display:none}
 .mapOverview.expanded .mapCollapseIcon{display:block}
+/* Expanded, the map runs under the taskbar, so the collapse button lifts clear of it. */
+.mapOverview.expanded .mapExpandButton{bottom:calc(var(--nav-bottom) + 86px)}
 /* Photo pins (all visual themes, tour, overview and preview maps): the stop photo fills a circle inside the marker. The number stays on the marker until the photo loads, then becomes a small badge; each theme sets the circle's size and colours below. */
 .photoPin{isolation:isolate}
 .photoPin .tourPinPhoto{position:absolute;left:50%;overflow:hidden;border-radius:50%;line-height:0}
