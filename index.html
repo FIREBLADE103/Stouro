@@ -12,7 +12,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-<link rel="icon" type="image/svg+xml" href="/assets/branding/guido/guido-emblem.svg">
+<link rel="icon" type="image/png" href="/assets/icons/icon-192.png">
 <!-- Home Screen app: drop theme-color so iOS cannot paint a solid status bar over the translucent one; the hero photo shows through instead. -->
 <script>try{const savedVisual=localStorage.getItem('stouro.visualTheme');if(savedVisual==='monochrome'){document.documentElement.dataset.visualTheme='monochrome';document.documentElement.dataset.theme='dark'}else if(!savedVisual||savedVisual==='guido')document.documentElement.dataset.visualTheme='guido'}catch(error){}</script>
 <script>if(navigator.standalone||matchMedia('(display-mode: standalone)').matches)document.querySelector('meta[name="theme-color"]')?.remove()</script>
@@ -504,15 +504,15 @@ html[data-visual-theme="guido"][data-theme="light"]{color-scheme:light;--paper:#
 html[data-visual-theme="guido"][data-theme="dark"]{color-scheme:dark;--paper:#292722;--surface:#34312b;--sand:#403b33;--line:#4a443b;--line-strong:#5f574b;--ink:#f6efe4;--muted:#c9b39b;--accent:#d9784f;--accent-hi:#e38c66;--accent-ink:#e8a07f;--accent-fill:#b9582f;--accent-soft:#4a3226;--on-accent:#fffaf4;--bar:#34312b;--bar-line:#ffffff1c;--bar-ink:#c9b39b;--bar-active:#eadcc4;--shadow-sm:0 1px 2px #0000004d;--shadow-md:0 1px 2px #0000003d,0 6px 18px #00000047;--earth:#7a6a4f;--deep:#1f1d19}
 html[data-visual-theme="guido"] .splash{background:radial-gradient(ellipse at 50% 44%,#3a3730 0%,#2f2c27 46%,#292722 100%)!important}
 /* GUIDO brand marks (all themes): pin emblem above the splash wordmark, the tagline, and the emblem beside the Explore wordmark. */
-.splashEmblem{display:block;width:64px;height:96px;margin:0 auto 16px}
+.splashEmblem{display:block;width:96px;height:96px;object-fit:contain;margin:0 auto 16px}
 .splashBrandStage .brandTagline{margin:12px 0 3px;color:var(--accent-hi);font-size:11px;font-weight:750;letter-spacing:.24em}
 .exploreBrand .logo{display:flex;align-items:center;gap:8px}
-.brandEmblem{display:block;width:16px;height:24px;flex:0 0 auto}
+.brandEmblem{display:block;width:24px;height:24px;object-fit:contain;flex:0 0 auto}
 </style>
 </head>
 <body>
 <div class="app">
-<section id="splash" class="screen splash active"><div class="spacer"></div><div class="splashBrandStage"><img class="splashEmblem" src="/assets/branding/guido/guido-emblem.svg" alt="" width="64" height="96"><div class="splashLogo" aria-label="GUIDO"><span class="splashLetter">G</span><span class="splashLetter">U</span><span class="splashLetter">I</span><span class="splashLetter">D</span><span class="splashLetter">O</span></div><p class="brandTagline">YOUR CITY. YOUR GUIDE.</p><div class="splashVersion" id="splashVersion">v0.0.6 • Development</div></div><div class="spacer"></div></section><section id="intro1" class="screen intro">
+<section id="splash" class="screen splash active"><div class="spacer"></div><div class="splashBrandStage"><img class="splashEmblem" src="/assets/branding/guido/guido-icon-transparent.png" alt="" width="96" height="96"><div class="splashLogo" aria-label="GUIDO"><span class="splashLetter">G</span><span class="splashLetter">U</span><span class="splashLetter">I</span><span class="splashLetter">D</span><span class="splashLetter">O</span></div><p class="brandTagline">YOUR CITY. YOUR GUIDE.</p><div class="splashVersion" id="splashVersion">v0.0.6 • Development</div></div><div class="spacer"></div></section><section id="intro1" class="screen intro">
   <div class="introTop"><div class="splashLogo">GUIDO</div><div class="introDots"><span class="active"></span><span></span><span></span><span></span></div></div>
   <div class="introVisual"><div class="introPhotoSlot"><span>PHOTO SLOT</span><strong>Rome photography</strong><small>Your images will appear here</small></div><div class="introCaption">GUIDO guides you as you explore.</div></div>
   <div class="eyebrow">Meet GUIDO</div><h1>Your personal guide,<br>wherever you go.</h1><p class="sub">A guide that walks with you, talks with you and adapts to the way you explore.</p>
@@ -546,7 +546,7 @@ html[data-visual-theme="guido"] .splash{background:radial-gradient(ellipse at 50
   <section class="exploreHero" aria-label="Featured destination">
     <img class="exploreHeroImage" id="exploreHeroImage" alt="The Colosseum in Rome" decoding="async" fetchpriority="high">
     <span class="exploreHeroShade" aria-hidden="true"></span>
-    <header class="exploreBrand"><div class="logo"><img class="brandEmblem" src="/assets/branding/guido/guido-emblem.svg" alt="" width="16" height="24">GUIDO</div></header>
+    <header class="exploreBrand"><div class="logo"><img class="brandEmblem" src="/assets/branding/guido/guido-icon-transparent.png" alt="" width="24" height="24">GUIDO</div></header>
     <div class="exploreLead"><h1>Choose a destination</h1></div>
     <label class="locationSearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="locationSearchInput" type="search" placeholder="Search destinations" aria-label="Search destinations" oninput="filterLocations(this.value)"><button type="button" onclick="clearLocationSearch()" aria-label="Clear search">×</button></label>
   </section>
