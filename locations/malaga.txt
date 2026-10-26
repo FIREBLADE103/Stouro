@@ -1,0 +1,187 @@
+Málaga landmarks — access reference
+22 unique landmarks: 3 in malagaLandmarks + 19 in malagaLandmarksPending (index.html).
+
+Notes
+- Site reference point: a sourced coordinate (lat, lng) for the site as a whole. It is NOT an entrance and must not be used as one.
+- Approximate approach point: a sourced but approximate coordinate for the area around an entrance. It is NOT a verified doorway pin.
+- Verified visitor entrance: a sourced coordinate for the actual public entrance, or UNVERIFIED. No entrance coordinates have been verified yet.
+- Address: marked "(confirmed)" where it matches the source; otherwise it is from general knowledge and unchecked.
+- Nearest street and approach come from general knowledge and have not been checked against a source, unless an access note says otherwise.
+- Source: URL(s) backing the site point, address or access note.
+
+1. Málaga Cathedral
+   Site reference point: 36.720010854505, -4.4193255901337 (Junta de Andalucía heritage record)
+   Verified visitor entrance: UNVERIFIED
+   Address: Calle Molina Lario, s/n, 29015 Málaga (confirmed)
+   Nearest street: Calle Molina Lario
+   Approach: Walk up Calle Molina Lario from the Alameda/Plaza de la Marina side; the west front faces Plaza del Obispo.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/catedral-de-malaga
+
+2. Plaza de la Merced
+   Site reference point: 36.7234, -4.4175 (existing app point; approximate square reference only, not taken from the source below)
+   Verified visitor entrance: NOT APPLICABLE (open public square)
+   Address: Plaza de la Merced, 29012 Málaga
+   Nearest street: Calle Granada / Calle Alcazabilla
+   Approach: Open square; reach it from Calle Granada or by walking north up Calle Alcazabilla.
+   Source: https://www.malaga.eu/la-ciudad/instalaciones-y-espacios/detalle-de-la-instalacion/?id=1696
+
+3. Picasso Birthplace Museum (Museo Casa Natal Picasso)
+   Site reference point: 36.724011, -4.4176427 (Junta de Andalucía cultural listing)
+   Verified visitor entrance: UNVERIFIED
+   Address: Plaza de la Merced, 15, 29012 Málaga (confirmed)
+   Nearest street: Plaza de la Merced (north-east side)
+   Approach: Faces Plaza de la Merced; shares a stop group with the square.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/fundacion-picasso-museo-casa-natal
+
+4. Alcazaba
+   Site reference point: 36.7201788, -4.4194052 (Junta de Andalucía cultural listing; sits ~20 m from the Cathedral's point, so it does not mark the entrance)
+   Verified visitor entrance: UNVERIFIED
+   Address: Calle Alcazabilla, 2, 29012 Málaga (confirmed)
+   Nearest street: Calle Alcazabilla
+   Approach: Gate on Calle Alcazabilla next to the Roman Theatre; the route inside climbs steeply on uneven paving.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/alcazaba-de-malaga
+
+5. Roman Theatre (Teatro Romano)
+   Site reference point: 36.721725, -4.417192 (Junta de Andalucía cultural listing)
+   Verified visitor entrance: UNVERIFIED
+   Address: Calle Alcazabilla, s/n, 29015 Málaga (confirmed)
+   Nearest street: Calle Alcazabilla
+   Approach: Visible from pedestrianised Calle Alcazabilla; entry is through the interpretation centre on the same street.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/enclave-arqueologico-del-teatro-romano-de-malaga
+
+6. Picasso Museum (Museo Picasso Málaga)
+   Site reference point: 36.72169, -4.41852 (published site coordinates from the Spanish Ministry of Culture museum directory; site point only, not the doorway)
+   Verified visitor entrance: UNVERIFIED (exact doorway coordinates unverified)
+   Address: Palacio de Buenavista, Calle San Agustín, 8, 29015 Málaga (confirmed)
+   Nearest street: Calle San Agustín
+   Approach: Visitor entrance is on Calle San Agustín, a narrow pedestrian street between Calle Granada and the Cathedral area.
+   Source: https://www.museopicassomalaga.org/en/visita; https://directoriomuseos.mcu.es/dirmuseos/mostrarDetalleMuseo.do?idMuseo=950&orderBy=&orderType=&pag=0&pestania=visita (site coordinates)
+
+7. Plaza del Obispo
+   Site reference point: 36.7202792, -4.4203336 (Ars Málaga Palacio Episcopal, Plaza del Obispo, 6 — a nearby cultural site on the square, not a plaza entrance)
+   Verified visitor entrance: NOT APPLICABLE (open public square)
+   Address: Plaza del Obispo, 29015 Málaga
+   Nearest street: Calle Molina Lario
+   Approach: Open square in front of the Cathedral's west front and the Bishop's Palace; shares a stop group with the Cathedral.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/ars-malaga-palacio-episcopal
+
+8. Calle Larios (Calle Marqués de Larios)
+   Site reference point: 36.7194534, -4.421568 (street reference point, not a unique entrance)
+   Verified visitor entrance: NOT APPLICABLE (pedestrian street)
+   Address: Calle Marqués de Larios, 29005 Málaga
+   Nearest street: Alameda Principal (south end) / Plaza de la Constitución (north end)
+   Approach: Pedestrian street; walk in from either end.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/calle-larios
+
+9. Plaza de la Constitución
+   Site reference point: 36.7212894, -4.4218633 (public square reference point)
+   Verified visitor entrance: NOT APPLICABLE (open public square)
+   Address: Plaza de la Constitución, 29005 Málaga
+   Nearest street: Calle Marqués de Larios (north end)
+   Approach: Open square at the top of Calle Larios.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/malaga-plaza-de-la-constitucion
+
+10. Pasaje de Chinitas
+   Site reference point: none supplied
+   Approximate approach point: 36.720814, -4.421294 (approximate entrance area by the arch on Plaza de la Constitución; not a verified doorway pin)
+   Verified visitor entrance: UNVERIFIED (public passage; doorway pin not independently verified)
+   Address: Pasaje de Chinitas, 29015 Málaga
+   Nearest street: Plaza de la Constitución
+   Approach: Enter through the historic entrance arch from Plaza de la Constitución into the narrow passage.
+   Source: https://www.escapadarural.com/que-hacer/malaga_malaga/pasaje-de-chinitas (approximate entrance-area coordinates)
+
+11. Iglesia de Santiago
+   Site reference point: 36.722305, -4.417538 (Wikipedia coordinate)
+   Verified visitor entrance: UNVERIFIED
+   Address: Calle Granada, 78, 29015 Málaga (confirmed by the parish)
+   Nearest street: Calle Granada
+   Approach: Door on pedestrianised Calle Granada, a short walk from Plaza de la Merced.
+   Source: https://es.wikipedia.org/wiki/Iglesia_de_Santiago_Ap%C3%B3stol_(M%C3%A1laga) (coordinate); https://parroquiasantiagoapostolmalaga.es/contacto.html (address)
+
+12. Museo Carmen Thyssen
+   Site reference point: 36.72159635, -4.4228894699334 (Junta de Andalucía cultural listing)
+   Verified visitor entrance: UNVERIFIED
+   Address: Palacio de Villalón, Calle Compañía, 10, 29008 Málaga (confirmed)
+   Nearest street: Calle Compañía
+   Approach: Pedestrian street just west of Plaza de la Constitución.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/evento/museo-carmen-thyssen-malaga (coordinate); https://www.malaga.eu/la-ciudad/instalaciones-y-espacios/detalle-de-la-instalacion/?id=2853 (address)
+
+13. Iglesia del Sagrado Corazón
+   Site reference point: 36.7212737, -4.4213988 (Junta de Andalucía cultural listing; entrance not independently verified)
+   Verified visitor entrance: UNVERIFIED
+   Address: Plaza de San Ignacio, 2, 29008 Málaga
+   Nearest street: Plaza de San Ignacio
+   Approach: Small square north-west of Plaza de la Constitución.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/iglesia-del-sagrado-corazon
+
+14. Atarazanas Market (Mercado Central de Atarazanas)
+   Site reference point: none supplied (no coordinates sourced; do not guess)
+   Verified visitor entrance: UNVERIFIED (address confirmed; main entrance coordinates unverified)
+   Address: Calle Atarazanas, 8, 29005 Málaga (confirmed)
+   Nearest street: Calle Atarazanas
+   Approach: Main historic entrance (horseshoe-arch gate) is on Calle Atarazanas, just north of the Alameda Principal.
+   Source: https://www.malaga.eu/la-ciudad/instalaciones-y-espacios/detalle-de-la-instalacion/?id=160
+
+15. Plaza de la Marina
+   Site reference point: 36.7177087, -4.4204625842912 (public square reference point)
+   Verified visitor entrance: NOT APPLICABLE (open public square)
+   Address: Plaza de la Marina, 29001 Málaga
+   Nearest street: Alameda Principal / Calle Marqués de Larios (south end)
+   Approach: Open square at the south end of Calle Larios, facing the port; pedestrian access to the port is nearby.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/plaza-de-la-marina
+
+16. Muelle Uno
+   Site reference point: none supplied (exact tour stop coordinates unverified)
+   Verified visitor entrance: UNVERIFIED (open promenade)
+   Address: Paseo del Muelle Uno, Puerto de Málaga, 29001 Málaga
+   Nearest street: Paseo del Parque
+   Approach: Use the pedestrian access from Plaza de la Marina or Muelle Uno (confirmed by the port authority).
+   Source: https://www.puertomalaga.com/en/access/
+
+17. La Farola
+   Site reference point: 36.71417, -4.41454 (lighthouse site coordinates from the Port of Málaga; marks the lighthouse itself, not a public viewpoint)
+   Verified visitor entrance: NOT APPLICABLE (working lighthouse with no public interior access; best public viewpoint coordinates not yet verified)
+   Address: Paseo de la Farola, 19, 29016 Málaga (confirmed)
+   Nearest street: Paseo de la Farola
+   Approach: Walk to the east end of Muelle Uno; view the lighthouse from the public waterfront promenade. Do not route visitors to the restricted lighthouse interior.
+   Source: https://www.boe.es/buscar/doc.php?id=BOE-A-2023-17265; https://www.puertomalaga.com/en/la-farola/ (site coordinates)
+
+18. Málaga City Hall (Ayuntamiento)
+   Site reference point: 36.72037, -4.415046 (Junta de Andalucía cultural listing)
+   Verified visitor entrance: UNVERIFIED
+   Address: Avenida de Cervantes, 4, 29016 Málaga (confirmed)
+   Nearest street: Avenida de Cervantes
+   Approach: Front faces Paseo del Parque; reach it along the park from Plaza de la Marina.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/ayuntamiento-de-malaga
+
+19. Gibralfaro Castle
+   Site reference point: 36.723363, -4.411675 (site reference coordinates; not the visitor entrance)
+   Verified visitor entrance: UNVERIFIED (exact visitor-entrance coordinates unverified)
+   Address: Camino de Gibralfaro, 11, 29016 Málaga (confirmed)
+   Nearest street: Camino de Gibralfaro
+   Approach: Head for the castle visitor entrance; access involves a steep uphill walk from the historic centre, via the Alcazaba area or Paseo de Don Juan Temboury. The road route is also reachable by bus.
+   Source: https://www.malaga.eu/la-ciudad/instalaciones-y-espacios/detalle-de-la-instalacion/?id=248; https://www.outdooractive.com/en/poi/malaga/castillo-de-gibralfaro/802487622/ (additional site-coordinate reference)
+
+20. La Malagueta Bullring (Plaza de Toros)
+   Site reference point: none supplied
+   Verified visitor entrance: UNVERIFIED (coordinates unverified; the visitor entrance is Gate 8 on Maestranza Street — confirmed by the bullring)
+   Address: Paseo de Reding, 29016 Málaga (confirmed)
+   Nearest street: Calle Maestranza (visitor gate) / Paseo de Reding
+   Approach: A short walk east from the end of Paseo del Parque; go round to Gate 8 on Maestranza Street.
+   Source: https://plazadetoroslamalagueta.com/en/contact-us/
+
+21. Playa de la Malagueta
+   Site reference point: 36.713565171723, -4.4134180247784 (Junta de Andalucía cultural listing; beach reference point, not an access point)
+   Verified visitor entrance: UNVERIFIED (open public beach; public beach access coordinates unverified)
+   Address: Paseo Marítimo Pablo Ruiz Picasso, 29016 Málaga
+   Nearest street: Paseo Marítimo Pablo Ruiz Picasso
+   Approach: Reach the beach from the promenade, south of the bullring.
+   Source: https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/playa-de-la-malagueta
+
+22. Baños del Carmen
+   Site reference point: none supplied
+   Verified visitor entrance: UNVERIFIED (visitor access coordinates and exact approach unverified)
+   Address: Avenida Pintor Joaquín Sorolla, 26, 29016 Málaga
+   Nearest street: Avenida Pintor Joaquín Sorolla
+   Approach: About 3 km east of the centre along the seafront (El Morlaco area); taking the bus or walking along the promenade is advised. Exact approach not verified.
+   Source: https://www.malaga.eu/la-ciudad/playas/banos-del-carmen/
