@@ -1,5 +1,5 @@
 Málaga landmarks — access reference
-22 unique landmarks: 3 in malagaLandmarks + 19 in malagaLandmarksPending (index.html).
+22 unique landmarks: 15 in malagaLandmarks + 7 in malagaLandmarksPending (index.html).
 
 Notes
 - Site reference point: a sourced coordinate (lat, lng) for the site as a whole. It is NOT an entrance and must not be used as one.
